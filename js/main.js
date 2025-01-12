@@ -41,6 +41,13 @@
         }
     });
 
+    // Load Contact
+    $("#contact").load("contact.html #contact-form", function (response, status, xhr) {
+        if (status === "error") {
+          console.error("Error loading contact form:", xhr.status, xhr.statusText);
+        }
+    });
+
    // Back to top button
    $(window).scroll(function () {
     if ($(this).scrollTop() > 300) {
