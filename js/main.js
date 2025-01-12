@@ -41,16 +41,6 @@
         }
     });
 
-    $(document).ready(function () {
-        $("#contact").load("contact.html", function (response, status, xhr) {
-            if (status === "error") {
-                console.error("Error loading Contact: ", xhr.status, xhr.statusText);
-            }
-        });
-    });
-    
-
-
    // Back to top button
    $(window).scroll(function () {
     if ($(this).scrollTop() > 300) {
