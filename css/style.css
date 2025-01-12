@@ -464,35 +464,40 @@ h1, h2, h3 {
 
 .project-img {
     position: relative;
-    padding: 15px;
+    padding: 20px;
+    border-radius: 15px; /* Rounded corners for sleek look */
+    overflow: hidden;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1); /* Softer and deeper shadow for professional depth */
+    transition: transform 0.5s ease-in-out; /* Smooth hover effect for image zoom */
+    background: #f8f8f8; /* Light background for non-hovered state */
 }
 
 .project-img::before {
     content: "";
     position: absolute;
-    width: 150px;
-    height: 150px;
-    top: 0;
-    left: 0;
-    background: var(--bs-secondary);
-    border-radius: 10px;
-    opacity: 1;
+    width: 130px;
+    height: 130px;
+    top: -30px;
+    left: -30px;
+    background: radial-gradient(circle, var(--bs-secondary), rgba(0, 0, 0, 0.1));
+    border-radius: 50%;
     z-index: -1;
-    transition: .5s;
+    opacity: 0.3;
+    transition: transform 0.6s ease, opacity 0.4s ease;
 }
 
 .project-img::after {
     content: "";
-    width: 150px;
-    height: 150px;
     position: absolute;
-    right: 0;
-    bottom: 0;
-    background: var(--bs-primary);
-    border-radius: 10px;
-    opacity: 1;
+    width: 130px;
+    height: 130px;
+    right: -30px;
+    bottom: -30px;
+    background: radial-gradient(circle, var(--bs-primary), rgba(0, 0, 0, 0.1));
+    border-radius: 50%;
     z-index: -1;
-    transition: .5s;
+    opacity: 0.3;
+    transition: transform 0.6s ease, opacity 0.4s ease;
 }
 
 .project-content {
@@ -504,27 +509,66 @@ h1, h2, h3 {
     display: flex;
     align-items: center;
     justify-content: center;
-    opacity: 0;
+    background: rgba(0, 0, 0, 0.4); /* Darker overlay for readability */
+    opacity: 1; /* Text is always visible */
+    transform: scale(1); /* No scaling effect on text */
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    border-radius: 15px;
+    padding: 20px;
+    text-align: center;
+}
+
+.project-content h3 {
+    font-size: 1.3rem;
+    color: #fff;
+    font-weight: 600;
+    letter-spacing: 1px;
+    /* text-transform: uppercase; */
+    margin-bottom: 15px;
+    opacity: 1;
+}
+
+.project-content p {
+    font-size: 1rem;
+    color: #fff;
+    margin-bottom: 20px;
+    opacity: 1;
 }
 
 .project-content a {
     display: inline-block;
-    padding: 20px 25px;
-    background: var(--bs-primary);
-    border-radius: 10px;
+    padding: 18px 35px;
+    background: linear-gradient(135deg, var(--bs-primary), var(--bs-secondary));
+    color: #fff;
+    font-weight: 600;
+    font-size: 14px;
+    text-decoration: none;
+    border-radius: 50px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); /* Smooth and soft shadow for depth */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.project-item:hover .project-content {
-    opacity: 1;
-    transition: .5s;
+.project-content a:hover {
+    transform: translateY(-5px) scale(1.05); /* Slight hover lift effect */
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15); /* Glowing effect on hover */
 }
 
-.project-item:hover .project-img::before,
+.project-item:hover .project-img {
+    transform: scale(1.05); /* Smooth zoom effect on hover */
+}
+
+.project-item:hover .project-img::before {
+    transform: translate(-50px, -50px) scale(1.6); /* Larger background scale */
+    opacity: 0.5; /* Increase opacity on hover */
+}
+
 .project-item:hover .project-img::after {
-    opacity: 0;
+    transform: translate(50px, 50px) scale(1.6); /* Larger background scale */
+    opacity: 0.5;
 }
 
 /*** Project End ***/
+
 
 
 /*** Blog Start ***/

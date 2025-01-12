@@ -11,11 +11,23 @@
     };
     spinner();
     
+    const forms = document.querySelectorAll('.needs-validation');
+
+    Array.from(forms).forEach(function (form) {
+        form.addEventListener('submit', function (event) {
+            if (!form.checkValidity()) {
+                event.preventDefault();
+                event.stopPropagation();
+            }
+
+            form.classList.add('was-validated');
+        }, false);
+    });
     
     // Initiate the wowjs
     new WOW().init();
     
-    // Navbar & Footer
+    // Navbar
     $("#navbar").load("navbar.html", function (response, status, xhr) {
         if (status === "error") {
             console.error("Error loading Navbar: ", xhr.status, xhr.statusText);
@@ -28,6 +40,16 @@
             console.error("Error loading Footer: ", xhr.status, xhr.statusText);
         }
     });
+
+    $(document).ready(function () {
+        $("#contact").load("contact.html", function (response, status, xhr) {
+            if (status === "error") {
+                console.error("Error loading Contact: ", xhr.status, xhr.statusText);
+            }
+        });
+    });
+    
+
 
    // Back to top button
    $(window).scroll(function () {
