@@ -1,0 +1,16 @@
+# Set home.html as the default page
+DirectoryIndex home.html
+
+# Optional: Enable friendly URLs or basic rewrite rules (only if needed later)
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # Example: Redirect non-www to www (comment out if not needed)
+    # RewriteCond %{HTTP_HOST} !^www\. [NC]
+    # RewriteRule ^(.*)$ http://www.%{HTTP_HOST}/$1 [R=301,L]
+
+    # Example: Force HTTPS (comment out if not needed)
+    # RewriteCond %{HTTPS} !=on
+    # RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+</IfModule>
+
